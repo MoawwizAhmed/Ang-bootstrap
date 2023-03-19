@@ -6,7 +6,8 @@ import { ExamplesComponent } from "./examples.component";
 import { MessagesComponent } from "./messages/message.component";
 
 const routes: Routes = [
-  { path: '', component: ExamplesComponent, children:[
+  { path: '', component: ExamplesComponent ,
+   children:[
   { path: RoutesUtil.examples.messages, component: MessagesComponent  },
   ]},
 

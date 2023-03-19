@@ -6,11 +6,14 @@ import { NotFoundComponent } from './not-found.component';
 import {RoutesUtil} from './route-util';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch:'full'},
-  {
-    path: RoutesUtil.examples.root,
-    loadChildren: () => import('../modules/examples/examples.module').then(m => m.ExamplesModule)
-  },
+  { path: 'home', component: HomeComponent,
+  children:[
+    {
+      path: RoutesUtil.examples.root,
+      loadChildren: () => import('../modules/examples/examples.module').then(m => m.ExamplesModule)
+    },
+  ]},
+  { path: '', redirectTo : '/home' ,pathMatch: 'full'},
   {
     path: '**', component: NotFoundComponent
   }
